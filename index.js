@@ -3,7 +3,9 @@ var app = express();
 var users = require('./data/users.js') 
 
 
-
+app.use(cors({
+    origin: "http://localhost:4000"
+}))
 
 app.get("/url", (req, res, next) => {
     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
