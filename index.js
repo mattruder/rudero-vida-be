@@ -1,11 +1,16 @@
-var express = require("express");
-var app = express();
-var users = require('./data/users.js') 
+const express = require("express");
+const app = express();
+const users = require('./data/users.js') 
+const cors = require('cors')
 
 
 app.use(cors({
-    origin: "http://localhost:4000"
+    origin: "http://localhost:3000"
 }))
+
+app.use(cors({
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 
 app.get("/url", (req, res, next) => {
     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
