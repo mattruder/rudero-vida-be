@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const users = require('./data/users.js') 
 const cors = require('cors')
+const todosdaily = require('./data/todosdaily.js')
 
 
 app.use(cors({
@@ -12,13 +13,15 @@ app.use(cors({
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
 
-app.get("/url", (req, res, next) => {
-    res.json(["Tony","Lisa","Michael","Ginger","Food"]);
-   });
 
    app.get("/api/people", (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     res.json(users);
+   });
+
+   app.get("/api/todosdaily", (req, res, next) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.json(todosdaily);
    });
 
 
